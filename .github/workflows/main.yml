@@ -29,10 +29,10 @@ jobs:
           python train.py
 
       - name: Build Docker image
-        run: docker build -t breast-cancer-app .
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/breast-cancer-app:latest .
 
       - name: Login to DockerHub
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
 
       - name: Push Docker image
-        run: docker tag breast-cancer-app ${{ secrets.DOCKER_USERNAME }}/breast-cancer-app:latest && docker push ${{ secrets.DOCKER_USERNAME }}/breast-cancer-app:latest
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/breast-cancer-app:latest
