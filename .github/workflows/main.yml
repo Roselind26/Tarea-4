@@ -23,15 +23,6 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: Install pytest
-      run: |
-        pip install pytest
-
-    - name: Run tests (opcional)
-      run: |
-        pytest  # Si tienes pruebas, sino elimina esta línea
-
-    - name: Build Docker image (opcional)
-      run: |
-        docker build -t breast-cancer-api .
-        docker push roselind26/breast-cancer-api
+    # - name: Run tests (opcional)  # Se elimina esta línea si no tienes pruebas
+    #   run: |
+    #     pytest
